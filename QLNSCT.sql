@@ -52,6 +52,7 @@ ThuViecDen Date not null,
 ChucVu nvarchar(100) not null,
 CongViecLam nvarchar(500) not null,
 DungCu nvarchar(225) ,
+TrinhDo nvarchar (50) null,
 MaNV nvarchar(50) not null, 
 PRIMARY KEY(MaHD),
 FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)ON UPDATE CASCADE
@@ -111,3 +112,13 @@ PRIMARY KEY(MaDC),
 FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 )
 GO
+CREATE TABLE BaoHiem(
+MaBH int IDENTITY(1,1) NOT NULL,
+MaNV nvarchar(50) not null,
+LoaiBaoHiem nvarchar(225) not null,
+SoTien float NOT NULL DEFAULT 0,
+PRIMARY KEY(MaBH),
+FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)ON UPDATE CASCADE
+)
+go
+
